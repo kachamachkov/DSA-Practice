@@ -21,13 +21,53 @@ class Stack {
     console.log(`${deleteItem} removed`);
     return deleteItem;
   }
+
+  peek() {
+    console.log(`Top element is ${this.items[this.count - 1]}`);
+    return this.items[this.count - 1];
+  }
+
+  isEmpty() {
+    console.log(this.count == 0 ? 'Stack is empty' : 'Stack is NOT empty');
+    return this.count == 0;
+  }
+
+  //   check size of stack
+  size() {
+    console.log(`${this.count} elements in stack`);
+    return this.count;
+  }
+  //   print elements in stack
+  print() {
+    let str = '';
+    for (let i = 0; i < this.count; i++) {
+      str += this.items[i] + ' ';
+    }
+    return str;
+  }
+
+  //   clear stack
+  clear() {
+    this.items = [];
+    this.count = 0;
+    console.log('Stack cleared');
+    return this.items;
+  }
 }
 
 const stack = new Stack();
-
+stack.isEmpty();
 stack.push(100);
 stack.push(200);
+stack.peek();
 stack.push(300);
+console.log(stack.print());
 
 stack.pop();
 stack.pop();
+stack.clear();
+console.log(stack.print());
+
+stack.size();
+
+stack.isEmpty();
